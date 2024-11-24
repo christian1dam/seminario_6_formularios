@@ -9,12 +9,11 @@ class AuthBackground extends StatelessWidget {
     return SingleChildScrollView(
         child: Column(
       children: [
-        const SizedBox(height: 250),
         Stack(
           children: [
             const PurpleBox(),
             _HeaderIcon(),
-            this.child,
+            child,
           ],
         ),
       ],
@@ -29,7 +28,7 @@ class AuthBackground extends StatelessWidget {
         child: Icon(
           Icons.person_pin,
           color: Colors.white,
-          weight: 250,
+          size: 100,
         ),
       ),
     );
