@@ -19,7 +19,7 @@ class InputDecorations {
           borderSide: BorderSide(color: Colors.deepPurple, width: 2),
         ),
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.black54),
+        hintStyle: const TextStyle(color: Colors.black45),
         labelText: labelText,
         labelStyle: const TextStyle(color: Colors.grey));
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formularios/screens/home_screen.dart';
-import 'package:formularios/screens/login_screen.dart';
+import 'screens/screens.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,7 +16,8 @@ class MyApp extends StatelessWidget {
       initialRoute: 'login',
       routes: {
         'login': (_) => const LoginScreen(),
-        'home': (_) => const HomeScreen()
+        'home': (_) => const HomeScreen(),
+        'SignUp': (_) => const SignUpScreen(),
       },
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.grey[300],

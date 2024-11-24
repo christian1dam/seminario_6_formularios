@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class CardContainer extends StatelessWidget {
   final Widget child;
-  const CardContainer({super.key, required this.child});
+  final double height;
+  const CardContainer({super.key, required this.child, required this.height});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class CardContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Container(
         width: double.infinity,
-        height: 350,
+        height: height,
         padding: const EdgeInsets.all(20),
         decoration: createCardShape(),
         child: child,

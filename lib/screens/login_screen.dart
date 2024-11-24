@@ -1,11 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:formularios/providers/login_form_provider.dart';
 import 'package:formularios/ui/input_decorations.dart';
-import 'package:formularios/widget/auth_background.dart';
-import 'package:formularios/widget/card_container.dart';
+import 'package:formularios/providers/providers.dart';
 import 'package:provider/provider.dart';
+import 'package:formularios/widget/widgets.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -18,6 +15,7 @@ class LoginScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 250),
               CardContainer(
+                height: 350,
                 child: Column(
                   children: [
                     const SizedBox(
@@ -38,7 +36,9 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, 'SignUp');
+                  },
                   child: const Text(
                     "Crear una nueva cuenta",
                     style: TextStyle(
@@ -118,14 +118,16 @@ class LoginBtn extends StatelessWidget {
         disabledColor: Colors.grey,
         elevation: 0,
         color: Colors.deepPurple,
-        onPressed: loginForm.isLoading ? null :  () async {
-          FocusScope.of(context).unfocus();
-          if(!loginForm.isValidForm()) return;
-          loginForm.isLoading = true;
-          await Future.delayed(Duration(seconds: 2));
-          loginForm.isLoading = false;
-          Navigator.pushReplacementNamed(context, 'home');
-        },
+        onPressed: loginForm.isLoading
+            ? null
+            : () async {
+                FocusScope.of(context).unfocus();
+                if (!loginForm.isValidForm()) return;
+                loginForm.isLoading = true;
+                await Future.delayed(const Duration(seconds: 2));
+                loginForm.isLoading = false;
+                Navigator.pushReplacementNamed(context, 'home');
+              },
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
           child: Text(
